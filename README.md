@@ -1,4 +1,6 @@
-# G2P for PyTorch
+# Sequence-to-Sequence G2P toolkit for PyTorch
+
+Grapheme to Phoneme (G2P) is a function that generates pronunciations (phonemes) for words based on their written form (graphemes). It has an important role in automatic speech recognition systems, natural language processing and text-to-speech engines. This tool uses a transformer model from [FairSeq]()
 
 This repo implements a G2P model and APIs using the PyTorch framework. The two APIs expressed here are:
 ```
