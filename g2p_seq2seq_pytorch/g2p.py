@@ -28,7 +28,7 @@ import torch
 
 INFER_DATA_DIR = os.path.join(os.path.dirname(__file__), 'data/infer_data/')
 USER_DIR = os.path.join(os.path.dirname(__file__), 'transformer')
-
+MODEL_CHECKPOINT = os.path.join(os.path.dirname(__file__), 'models/20210722.pt')
 
 class G2PPytorch:
 
@@ -141,10 +141,10 @@ class G2PPytorch:
                 constraints=constraints,
             )
 
-    def load_model(self, library_root: str, g2p_model_path: str) -> None:
+    def load_model(self, g2p_model_path: Optional[str] = MODEL_CHECKPOINT) -> None:
         # Load ensemble
         self.models, _model_args = checkpoint_utils.load_model_ensemble(
-            [os.path.join(library_root, g2p_model_path)],
+            [g2p_model_path],
             task=self.task,
             strict=(self.cfg.checkpoint_shard_count == 1),
             num_shards=self.cfg.checkpoint_shard_count,
