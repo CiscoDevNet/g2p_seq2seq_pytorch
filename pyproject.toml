@@ -1,0 +1,90 @@
+[tool.poetry]
+name = "g2p-seq2seq-pytorch"
+version = "0.1.0"
+description = "PyTorch model for Grapheme to Phoneme"
+authors = ["Cisco Mindmeld"]
+license = "Apache 2"
+readme = 'README.md'
+
+[tool.poetry.dependencies]
+python = "^3.7.8"
+torch = "^1.8.1"
+torchvision = "^0.9.1"
+sacremoses = "^0.0.45"
+fairseq = "^0.10.2"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.5.7"
+bandit = "^1.7.0"
+isort = "^5.8.0"
+lxml = "*"
+mypy = ">= 0.900"
+pylint = "^2.9.3"
+pytest = "^6.2.4"
+pytest-aiohttp = ">= 0.3.0, < 1"
+pytest-asyncio = ">= 0.15.1, < 1"
+pytest-cov = "^2.11.1"
+toml = "^0.10.2"
+
+[tool.autopep8]
+max_line_length = 120
+recursive = true
+
+[tool.isort]
+force_sort_within_sections = true
+include_trailing_comma = true
+line_length = 120
+multi_line_output = 5
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = "no-self-use, too-few-public-methods, invalid-name, missing-module-docstring, missing-class-docstring, missing-function-docstring, unused-argument"
+
+[tool.pylint.REPORTS]
+output-format = "parseable"
+
+[tool.pylint.FORMAT]
+max-line-length = 120
+
+[tool.pylint.SIMILARITIES]
+ignore_signatures = true
+
+[tool.pylint.DESIGN]
+max-args = 10
+max-attributes = 10
+
+[tool.mypy]
+python_version = 3.8
+warn_unused_configs = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+no_implicit_reexport = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "fairseq",
+    "fairseq.*",
+    "fairseq_cli.*",
+    "mindmeld.*",
+    "numpy",
+    "prometheus_client",
+    "pytorch_lightning.*",
+    "seqeval.*",
+    "torch.*",
+    "tqdm",
+    "transformers.*"
+]
+ignore_missing_imports = true
