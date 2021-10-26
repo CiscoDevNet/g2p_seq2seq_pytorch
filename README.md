@@ -68,4 +68,4 @@ We benchmarked the PyTorch model against the [CMUSphinx](https://github.com/cmus
 | CMUSphinx      | 4.16     | 19.91    | 13.76             | -                 |
 | PyTorch  | 5.26     | 23.80    | 10.19             | 5.41              |
 
-More details on the benchmarking datasets can be found in our [blog post](https://blogs.cisco.com/developer/).
+More details on the benchmarking datasets can be found in our [blog post](https://blogs.cisco.com/developer/graphemephoneme01).
